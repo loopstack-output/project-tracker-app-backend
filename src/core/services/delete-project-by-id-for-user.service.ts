@@ -1,12 +1,12 @@
-
 import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Like } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { Project } from '../entities/project.entity';
+import { DeleteProjectByIdForUserServiceInterface } from '../interfaces/delete-project-by-id-for-user-service.interface';
 
 @Injectable()
-export class DeleteProjectByIdForUserService {
+export class DeleteProjectByIdForUserService implements DeleteProjectByIdForUserServiceInterface {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,

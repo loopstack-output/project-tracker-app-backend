@@ -3,9 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Like } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { Project } from '../entities/project.entity';
+import { SearchProjectsForUserServiceInterface } from '../interfaces/search-projects-for-user-service.interface';
 
 @Injectable()
-export class SearchProjectsForUserService {
+export class SearchProjectsForUserService implements SearchProjectsForUserServiceInterface {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,

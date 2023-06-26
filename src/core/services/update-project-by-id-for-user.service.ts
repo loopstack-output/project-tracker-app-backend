@@ -3,9 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { Project } from '../entities/project.entity';
+import { UpdateProjectByIdForUserServiceInterface } from '../interfaces/update-project-by-id-for-user-service.interface';
 
 @Injectable()
-export class UpdateProjectByIdForUserService {
+export class UpdateProjectByIdForUserService implements UpdateProjectByIdForUserServiceInterface {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
